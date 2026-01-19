@@ -1,10 +1,14 @@
 ---
-name: rust-best-practices
-description: Comprehensive Rust code quality, memory optimization, and performance guidelines. Use when writing, reviewing, or refactoring Rust code to ensure idiomatic, safe, and highly performant patterns. Triggers on tasks involving ownership, error handling, async code, API design, memory optimization, or performance tuning.
+name: rust-skills
+description: >
+  Comprehensive Rust coding guidelines with 179 rules across 14 categories.
+  Use when writing, reviewing, or refactoring Rust code. Covers ownership,
+  error handling, async patterns, API design, memory optimization, performance,
+  testing, and common anti-patterns. Invoke with /rust-skills.
 license: MIT
 metadata:
-  author: community
-  version: "2.0.0"
+  author: leonardomso
+  version: "1.0.0"
   sources:
     - Rust API Guidelines
     - Rust Performance Book
@@ -13,7 +17,7 @@ metadata:
 
 # Rust Best Practices
 
-Comprehensive guide for writing high-quality, idiomatic, and highly optimized Rust code. Contains 100+ rules across 14 categories, prioritized by impact to guide LLMs in code generation and refactoring.
+Comprehensive guide for writing high-quality, idiomatic, and highly optimized Rust code. Contains 179 rules across 14 categories, prioritized by impact to guide LLMs in code generation and refactoring.
 
 ## When to Apply
 
@@ -36,14 +40,14 @@ Reference these guidelines when:
 | 4 | API Design | HIGH | `api-` | 15 |
 | 5 | Async/Await | HIGH | `async-` | 15 |
 | 6 | Compiler Optimization | HIGH | `opt-` | 12 |
-| 7 | Naming Conventions | MEDIUM | `name-` | 15 |
+| 7 | Naming Conventions | MEDIUM | `name-` | 16 |
 | 8 | Type Safety | MEDIUM | `type-` | 10 |
-| 9 | Testing | MEDIUM | `test-` | 12 |
-| 10 | Documentation | MEDIUM | `doc-` | 10 |
+| 9 | Testing | MEDIUM | `test-` | 13 |
+| 10 | Documentation | MEDIUM | `doc-` | 11 |
 | 11 | Performance Patterns | MEDIUM | `perf-` | 11 |
-| 12 | Project Structure | LOW | `proj-` | 10 |
-| 13 | Clippy & Linting | LOW | `lint-` | 10 |
-| 14 | Anti-patterns | REFERENCE | `anti-` | 14 |
+| 12 | Project Structure | LOW | `proj-` | 11 |
+| 13 | Clippy & Linting | LOW | `lint-` | 11 |
+| 14 | Anti-patterns | REFERENCE | `anti-` | 15 |
 
 ---
 
@@ -162,6 +166,7 @@ Reference these guidelines when:
 - [`name-no-get-prefix`](rules/name-no-get-prefix.md) - No `get_` prefix for simple getters
 - [`name-is-has-bool`](rules/name-is-has-bool.md) - Use `is_`, `has_`, `can_` for boolean methods
 - [`name-iter-convention`](rules/name-iter-convention.md) - Use `iter`/`iter_mut`/`into_iter` for iterators
+- [`name-iter-method`](rules/name-iter-method.md) - Name iterator methods consistently
 - [`name-iter-type-match`](rules/name-iter-type-match.md) - Iterator type names match method
 - [`name-acronym-word`](rules/name-acronym-word.md) - Treat acronyms as words: `Uuid` not `UUID`
 - [`name-crate-no-rs`](rules/name-crate-no-rs.md) - Crate names: no `-rs` suffix
@@ -188,6 +193,7 @@ Reference these guidelines when:
 - [`test-arrange-act-assert`](rules/test-arrange-act-assert.md) - Structure tests as arrange/act/assert
 - [`test-proptest-properties`](rules/test-proptest-properties.md) - Use `proptest` for property-based testing
 - [`test-mockall-mocking`](rules/test-mockall-mocking.md) - Use `mockall` for trait mocking
+- [`test-mock-traits`](rules/test-mock-traits.md) - Use traits for dependencies to enable mocking
 - [`test-fixture-raii`](rules/test-fixture-raii.md) - Use RAII pattern (Drop) for test cleanup
 - [`test-tokio-async`](rules/test-tokio-async.md) - Use `#[tokio::test]` for async tests
 - [`test-should-panic`](rules/test-should-panic.md) - Use `#[should_panic]` for panic tests
@@ -205,6 +211,7 @@ Reference these guidelines when:
 - [`doc-question-mark`](rules/doc-question-mark.md) - Use `?` in examples, not `.unwrap()`
 - [`doc-hidden-setup`](rules/doc-hidden-setup.md) - Use `# ` prefix to hide example setup code
 - [`doc-intra-links`](rules/doc-intra-links.md) - Use intra-doc links: `[Vec]`
+- [`doc-link-types`](rules/doc-link-types.md) - Link related types and functions in docs
 - [`doc-cargo-metadata`](rules/doc-cargo-metadata.md) - Fill `Cargo.toml` metadata
 
 ### 11. Performance Patterns (MEDIUM)
@@ -233,6 +240,7 @@ Reference these guidelines when:
 - [`proj-prelude-module`](rules/proj-prelude-module.md) - Create `prelude` module for common imports
 - [`proj-bin-dir`](rules/proj-bin-dir.md) - Put multiple binaries in `src/bin/`
 - [`proj-workspace-large`](rules/proj-workspace-large.md) - Use workspaces for large projects
+- [`proj-workspace-deps`](rules/proj-workspace-deps.md) - Use workspace dependency inheritance
 
 ### 13. Clippy & Linting (LOW)
 
@@ -246,6 +254,7 @@ Reference these guidelines when:
 - [`lint-unsafe-doc`](rules/lint-unsafe-doc.md) - `#![warn(clippy::undocumented_unsafe_blocks)]`
 - [`lint-cargo-metadata`](rules/lint-cargo-metadata.md) - `#![warn(clippy::cargo)]` for published crates
 - [`lint-rustfmt-check`](rules/lint-rustfmt-check.md) - Run `cargo fmt --check` in CI
+- [`lint-workspace-lints`](rules/lint-workspace-lints.md) - Configure lints at workspace level
 
 ### 14. Anti-patterns (REFERENCE)
 
