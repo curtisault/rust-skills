@@ -1,80 +1,82 @@
 # Rust Skills
 
-> 179 production-ready Rust guidelines for AI coding agents
+179 Rust rules your AI coding agent can use to write better code.
 
-A comprehensive set of Rust best practices designed for AI coding assistants. Works with Claude Code, Cursor, Windsurf, GitHub Copilot, OpenAI Codex, Aider, Zed, Amp, and 20+ other agents.
+Works with Claude Code, Cursor, Windsurf, Copilot, Codex, Aider, Zed, Amp, Cline, and pretty much any other agent that supports skills.
 
-## Quick Install
+## Install
 
 ```bash
 npx add-skill leonardomso/rust-skills
 ```
 
-Or using the skills CLI:
+That's it. The CLI figures out which agents you have and installs the skill to the right place.
 
-```bash
-npx skills add leonardomso/rust-skills
-```
+## How to use it
 
-## Usage
-
-Once installed, invoke the skill in your agent:
+After installing, just ask your agent:
 
 ```
-/rust-skills Review my error handling code
+/rust-skills review this function
 ```
 
 ```
-/rust-skills Check this async code for issues
+/rust-skills is my error handling idiomatic?
 ```
 
 ```
-/rust-skills Help me design a public API for this module
+/rust-skills check for memory issues
 ```
 
-```
-/rust-skills Optimize memory usage in this function
-```
+The agent loads the relevant rules and applies them to your code.
 
-## What's Included
+## What's in here
 
-### 14 Categories, 179 Rules
+179 rules split into 14 categories:
 
-| Category | Rules | Impact | Description |
-|----------|-------|--------|-------------|
-| **Ownership & Borrowing** | 12 | CRITICAL | Borrow over clone, Arc/Rc, lifetimes |
-| **Error Handling** | 12 | CRITICAL | thiserror/anyhow, context chains, `?` |
-| **Memory Optimization** | 15 | CRITICAL | SmallVec, arenas, zero-copy patterns |
-| **API Design** | 15 | HIGH | Builder pattern, newtypes, sealed traits |
-| **Async/Tokio** | 15 | HIGH | spawn_blocking, channels, cancellation |
-| **Compiler Optimization** | 12 | HIGH | LTO, inlining, PGO, SIMD |
-| **Naming Conventions** | 16 | MEDIUM | Rust API Guidelines naming rules |
-| **Type Safety** | 10 | MEDIUM | Newtype pattern, parse don't validate |
-| **Testing** | 13 | MEDIUM | Proptest, mockall, criterion |
-| **Documentation** | 11 | MEDIUM | Doc examples, intra-doc links |
-| **Performance Patterns** | 11 | MEDIUM | Iterators, entry API, collect patterns |
-| **Project Structure** | 11 | LOW | Workspaces, module organization |
-| **Clippy & Linting** | 11 | LOW | Lint configuration, CI setup |
-| **Anti-patterns** | 15 | REFERENCE | Common mistakes to avoid |
+| Category | Rules | What it covers |
+|----------|-------|----------------|
+| **Ownership & Borrowing** | 12 | When to borrow vs clone, Arc/Rc, lifetimes |
+| **Error Handling** | 12 | thiserror for libs, anyhow for apps, the `?` operator |
+| **Memory** | 15 | SmallVec, arenas, avoiding allocations |
+| **API Design** | 15 | Builder pattern, newtypes, sealed traits |
+| **Async** | 15 | Tokio patterns, channels, spawn_blocking |
+| **Optimization** | 12 | LTO, inlining, PGO, SIMD |
+| **Naming** | 16 | Following Rust API Guidelines |
+| **Type Safety** | 10 | Newtypes, parse don't validate |
+| **Testing** | 13 | Proptest, mockall, criterion |
+| **Docs** | 11 | Doc examples, intra-doc links |
+| **Performance** | 11 | Iterators, entry API, collect patterns |
+| **Project Structure** | 11 | Workspaces, module layout |
+| **Linting** | 11 | Clippy config, CI setup |
+| **Anti-patterns** | 15 | Common mistakes and how to fix them |
 
-## Manual Installation
+Each rule has:
+- Why it matters
+- Bad code example
+- Good code example
+- Links to official docs when relevant
+
+## Manual install
+
+If `add-skill` doesn't work for your setup, here's how to install manually:
 
 <details>
-<summary><strong>Claude Code</strong></summary>
+<summary><b>Claude Code</b></summary>
 
-**Global (all projects):**
+Global (applies to all projects):
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git ~/.claude/skills/rust-skills
 ```
 
-**Project-specific:**
+Or just for one project:
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git .claude/skills/rust-skills
 ```
 </details>
 
 <details>
-<summary><strong>OpenCode</strong></summary>
+<summary><b>OpenCode</b></summary>
 
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git .opencode/skills/rust-skills
@@ -82,20 +84,20 @@ git clone https://github.com/leonardomso/rust-skills.git .opencode/skills/rust-s
 </details>
 
 <details>
-<summary><strong>Cursor</strong></summary>
+<summary><b>Cursor</b></summary>
 
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git .cursor/skills/rust-skills
 ```
 
-Or copy to `.cursorrules`:
+Or just grab the skill file:
 ```bash
 curl -o .cursorrules https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
 ```
 </details>
 
 <details>
-<summary><strong>Windsurf</strong></summary>
+<summary><b>Windsurf</b></summary>
 
 ```bash
 mkdir -p .windsurf/rules
@@ -104,20 +106,20 @@ curl -o .windsurf/rules/rust-skills.md https://raw.githubusercontent.com/leonard
 </details>
 
 <details>
-<summary><strong>OpenAI Codex</strong></summary>
+<summary><b>OpenAI Codex</b></summary>
 
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git .codex/skills/rust-skills
 ```
 
-Or use AGENTS.md:
+Or use the AGENTS.md standard:
 ```bash
 curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
 ```
 </details>
 
 <details>
-<summary><strong>GitHub Copilot</strong></summary>
+<summary><b>GitHub Copilot</b></summary>
 
 ```bash
 mkdir -p .github
@@ -126,30 +128,29 @@ curl -o .github/copilot-instructions.md https://raw.githubusercontent.com/leonar
 </details>
 
 <details>
-<summary><strong>Aider</strong></summary>
+<summary><b>Aider</b></summary>
 
 Add to `.aider.conf.yml`:
 ```yaml
 read: path/to/rust-skills/SKILL.md
 ```
 
-Or run with:
+Or pass it directly:
 ```bash
 aider --read path/to/rust-skills/SKILL.md
 ```
 </details>
 
 <details>
-<summary><strong>Zed</strong></summary>
+<summary><b>Zed</b></summary>
 
-Zed supports AGENTS.md. Copy to your project root:
 ```bash
 curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
 ```
 </details>
 
 <details>
-<summary><strong>Amp (Sourcegraph)</strong></summary>
+<summary><b>Amp</b></summary>
 
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git .agents/skills/rust-skills
@@ -157,7 +158,7 @@ git clone https://github.com/leonardomso/rust-skills.git .agents/skills/rust-ski
 </details>
 
 <details>
-<summary><strong>Cline / Roo Code</strong></summary>
+<summary><b>Cline / Roo Code</b></summary>
 
 ```bash
 mkdir -p .clinerules
@@ -166,36 +167,29 @@ curl -o .clinerules/rust-skills.md https://raw.githubusercontent.com/leonardomso
 </details>
 
 <details>
-<summary><strong>AGENTS.md Standard</strong></summary>
+<summary><b>Other agents (AGENTS.md)</b></summary>
 
-For any agent supporting the [AGENTS.md](https://agents.md) standard:
+If your agent supports the [AGENTS.md](https://agents.md) standard:
 ```bash
 curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
 ```
 </details>
 
-## Full Rule Index
+## All rules
 
-See [SKILL.md](./SKILL.md) for the complete rule index with links to individual rule files.
+See [SKILL.md](./SKILL.md) for the full list with links to each rule file.
 
-Each rule file in `rules/` contains:
-- Brief explanation of why it matters
-- Bad code example
-- Good code example
-- Additional context and references
+## Where these rules come from
 
-## Sources
-
-These guidelines synthesize best practices from:
 - [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
 - [Rust Performance Book](https://nnethercote.github.io/perf-book/)
 - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/)
-- Production codebases: ripgrep, tokio, serde, polars, axum
-- Clippy lint documentation
+- Real code from ripgrep, tokio, serde, polars, axum
+- Clippy docs
 
 ## Contributing
 
-Contributions welcome! Please follow the existing rule format when adding new rules.
+PRs welcome. Just follow the format of existing rules.
 
 ## License
 
