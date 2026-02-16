@@ -2,7 +2,7 @@
 
 179 Rust rules your AI coding agent can use to write better code.
 
-Works with Claude Code, Cursor, Windsurf, Copilot, Codex, Aider, Zed, Amp, Cline, and pretty much any other agent that supports skills.
+Works with Claude Code, Zed, and pretty much any other agent that supports skills.
 
 ## Install
 
@@ -76,93 +76,10 @@ git clone https://github.com/leonardomso/rust-skills.git .claude/skills/rust-ski
 </details>
 
 <details>
-<summary><b>OpenCode</b></summary>
-
-```bash
-git clone https://github.com/leonardomso/rust-skills.git .opencode/skills/rust-skills
-```
-</details>
-
-<details>
-<summary><b>Cursor</b></summary>
-
-```bash
-git clone https://github.com/leonardomso/rust-skills.git .cursor/skills/rust-skills
-```
-
-Or just grab the skill file:
-```bash
-curl -o .cursorrules https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
-```
-</details>
-
-<details>
-<summary><b>Windsurf</b></summary>
-
-```bash
-mkdir -p .windsurf/rules
-curl -o .windsurf/rules/rust-skills.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
-```
-</details>
-
-<details>
-<summary><b>OpenAI Codex</b></summary>
-
-```bash
-git clone https://github.com/leonardomso/rust-skills.git .codex/skills/rust-skills
-```
-
-Or use the AGENTS.md standard:
-```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
-```
-</details>
-
-<details>
-<summary><b>GitHub Copilot</b></summary>
-
-```bash
-mkdir -p .github
-curl -o .github/copilot-instructions.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
-```
-</details>
-
-<details>
-<summary><b>Aider</b></summary>
-
-Add to `.aider.conf.yml`:
-```yaml
-read: path/to/rust-skills/SKILL.md
-```
-
-Or pass it directly:
-```bash
-aider --read path/to/rust-skills/SKILL.md
-```
-</details>
-
-<details>
 <summary><b>Zed</b></summary>
 
 ```bash
 curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
-```
-</details>
-
-<details>
-<summary><b>Amp</b></summary>
-
-```bash
-git clone https://github.com/leonardomso/rust-skills.git .agents/skills/rust-skills
-```
-</details>
-
-<details>
-<summary><b>Cline / Roo Code</b></summary>
-
-```bash
-mkdir -p .clinerules
-curl -o .clinerules/rust-skills.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
 ```
 </details>
 
