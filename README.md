@@ -2,7 +2,7 @@
 
 179 Rust rules your AI coding agent can use to write better code.
 
-Works with Claude Code, Zed, and pretty much any other agent that supports skills.
+Works with Claude Code, Crush, Zed, and pretty much any other agent that supports skills.
 
 ## Install
 
@@ -72,6 +72,20 @@ git clone https://github.com/leonardomso/rust-skills.git ~/.claude/skills/rust-s
 Or just for one project:
 ```bash
 git clone https://github.com/leonardomso/rust-skills.git .claude/skills/rust-skills
+```
+</details>
+
+<details>
+<summary><b>Crush</b></summary>
+
+Global (applies to all projects):
+```bash
+git clone https://github.com/leonardomso/rust-skills.git ~/.config/crush/skills/rust-skills
+```
+
+Or just for one project:
+```bash
+git clone https://github.com/leonardomso/rust-skills.git project-skills/rust-skills
 ```
 </details>
 
