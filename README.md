@@ -11,12 +11,12 @@ Works with Claude Code, Crush, Zed, and pretty much any other agent that support
 
 Global (applies to all projects):
 ```bash
-git clone https://github.com/leonardomso/rust-skills.git ~/.claude/skills/rust-skills
+git clone https://github.com/curtisault/rust-skills.git ~/.claude/skills/rust-skills
 ```
 
 Or just for one project:
 ```bash
-git clone https://github.com/leonardomso/rust-skills.git .claude/skills/rust-skills
+git clone https://github.com/curtisault/rust-skills.git .claude/skills/rust-skills
 ```
 </details>
 
@@ -25,12 +25,12 @@ git clone https://github.com/leonardomso/rust-skills.git .claude/skills/rust-ski
 
 Global (applies to all projects):
 ```bash
-git clone https://github.com/leonardomso/rust-skills.git ~/.config/crush/skills/rust-skills
+git clone https://github.com/curtisault/rust-skills.git ~/.config/crush/skills/rust-skills
 ```
 
 Or just for one project:
 ```bash
-git clone https://github.com/leonardomso/rust-skills.git project-skills/rust-skills
+git clone https://github.com/curtisault/rust-skills.git project-skills/rust-skills
 ```
 </details>
 
@@ -38,7 +38,7 @@ git clone https://github.com/leonardomso/rust-skills.git project-skills/rust-ski
 <summary><b>Zed</b></summary>
 
 ```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
+curl -o AGENTS.md https://raw.githubusercontent.com/curtisault/rust-skills/master/SKILL.md
 ```
 </details>
 
@@ -47,7 +47,7 @@ curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/mast
 
 If your agent supports the [AGENTS.md](https://agents.md) standard:
 ```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
+curl -o AGENTS.md https://raw.githubusercontent.com/curtisault/rust-skills/master/SKILL.md
 ```
 </details>
 

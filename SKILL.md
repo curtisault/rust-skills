@@ -7,7 +7,7 @@ description: >
   testing, and common anti-patterns. Invoke with /rust-skills.
 license: MIT
 metadata:
-  author: leonardomso
+  author: curtisault
   version: "1.0.0"
   sources:
     - Rust API Guidelines
