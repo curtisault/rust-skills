@@ -278,6 +278,8 @@ Reference these guidelines when:
 
 ## Recommended Cargo.toml Settings
 
+### Standalone project
+
 ```toml
 [profile.release]
 opt-level = 3
@@ -297,6 +299,74 @@ debug = true
 
 [profile.dev.package."*"]
 opt-level = 3  # Optimize dependencies in dev
+```
+
+### Workspace
+
+```toml
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+
+[workspace.dependencies]
+# Pin shared dependencies here
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+thiserror = "2"
+anyhow = "1"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+correctness = { level = "deny", priority = -1 }
+suspicious = { level = "warn", priority = -1 }
+style = { level = "warn", priority = -1 }
+complexity = { level = "warn", priority = -1 }
+perf = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.bench]
+inherits = "release"
+debug = true
+strip = false
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.dev.package."*"]
+opt-level = 3  # Optimize dependencies in dev
+```
+
+Member crates inherit from the workspace:
+
+```toml
+[package]
+name = "my-crate"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+tokio = { workspace = true }
+serde = { workspace = true }
+
+[lints]
+workspace = true
 ```
 
 ---
