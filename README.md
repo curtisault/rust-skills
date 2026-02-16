@@ -4,62 +4,7 @@
 
 Works with Claude Code, Crush, Zed, and pretty much any other agent that supports skills.
 
-## Install
-
-```bash
-npx add-skill leonardomso/rust-skills
-```
-
-That's it. The CLI figures out which agents you have and installs the skill to the right place.
-
-## How to use it
-
-After installing, just ask your agent:
-
-```
-/rust-skills review this function
-```
-
-```
-/rust-skills is my error handling idiomatic?
-```
-
-```
-/rust-skills check for memory issues
-```
-
-The agent loads the relevant rules and applies them to your code.
-
-## What's in here
-
-179 rules split into 14 categories:
-
-| Category | Rules | What it covers |
-|----------|-------|----------------|
-| **Ownership & Borrowing** | 12 | When to borrow vs clone, Arc/Rc, lifetimes |
-| **Error Handling** | 12 | thiserror for libs, anyhow for apps, the `?` operator |
-| **Memory** | 15 | SmallVec, arenas, avoiding allocations |
-| **API Design** | 15 | Builder pattern, newtypes, sealed traits |
-| **Async** | 15 | Tokio patterns, channels, spawn_blocking |
-| **Optimization** | 12 | LTO, inlining, PGO, SIMD |
-| **Naming** | 16 | Following Rust API Guidelines |
-| **Type Safety** | 10 | Newtypes, parse don't validate |
-| **Testing** | 13 | Proptest, mockall, criterion |
-| **Docs** | 11 | Doc examples, intra-doc links |
-| **Performance** | 11 | Iterators, entry API, collect patterns |
-| **Project Structure** | 11 | Workspaces, module layout |
-| **Linting** | 11 | Clippy config, CI setup |
-| **Anti-patterns** | 15 | Common mistakes and how to fix them |
-
-Each rule has:
-- Why it matters
-- Bad code example
-- Good code example
-- Links to official docs when relevant
-
-## Manual install
-
-If `add-skill` doesn't work for your setup, here's how to install manually:
+## Setup
 
 <details>
 <summary><b>Claude Code</b></summary>
@@ -105,6 +50,51 @@ If your agent supports the [AGENTS.md](https://agents.md) standard:
 curl -o AGENTS.md https://raw.githubusercontent.com/leonardomso/rust-skills/master/SKILL.md
 ```
 </details>
+
+## How to use it
+
+After installing, just ask your agent:
+
+```
+/rust-skills review this function
+```
+
+```
+/rust-skills is my error handling idiomatic?
+```
+
+```
+/rust-skills check for memory issues
+```
+
+The agent loads the relevant rules and applies them to your code.
+
+## What's in here
+
+179 rules split into 14 categories:
+
+| Category | Rules | What it covers |
+|----------|-------|----------------|
+| **Ownership & Borrowing** | 12 | When to borrow vs clone, Arc/Rc, lifetimes |
+| **Error Handling** | 12 | thiserror for libs, anyhow for apps, the `?` operator |
+| **Memory** | 15 | SmallVec, arenas, avoiding allocations |
+| **API Design** | 15 | Builder pattern, newtypes, sealed traits |
+| **Async** | 15 | Tokio patterns, channels, spawn_blocking |
+| **Optimization** | 12 | LTO, inlining, PGO, SIMD |
+| **Naming** | 16 | Following Rust API Guidelines |
+| **Type Safety** | 10 | Newtypes, parse don't validate |
+| **Testing** | 13 | Proptest, mockall, criterion |
+| **Docs** | 11 | Doc examples, intra-doc links |
+| **Performance** | 11 | Iterators, entry API, collect patterns |
+| **Project Structure** | 11 | Workspaces, module layout |
+| **Linting** | 11 | Clippy config, CI setup |
+| **Anti-patterns** | 15 | Common mistakes and how to fix them |
+
+Each rule has:
+- Why it matters
+- Bad code example
+- Good code example
+- Links to official docs when relevant
 
 ## All rules
 
